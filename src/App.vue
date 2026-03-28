@@ -1,10 +1,12 @@
 <template>
   <div>
-    <Beverage :isIced="currentTemp === 'Cold'" 
-              :base="currentBase"
-              :creamer="currentCreamer"
-              :syrup="currentSyrup"
+    <Beverage
+      :isIced="currentTemp === 'Cold'"
+      :base="currentBase"
+      :creamer="currentCreamer"
+      :syrup="currentSyrup"
     />
+
     <ul>
       <li>
         <template v-for="temp in temps" :key="temp">
@@ -20,19 +22,21 @@
           </label>
         </template>
       </li>
+
       <li>
         <template v-for="base in bases" :key="base.id">
           <label>
             <input
-            type="radio"
-            name="base"
-            :value="base"
-            v-model="currentBase"
+              type="radio"
+              name="base"
+              :value="base"
+              v-model="currentBase"
             />
             {{ base.name }}
           </label>
         </template>
       </li>
+
       <li>
         <template v-for="syrup in syrups" :key="syrup.id">
           <label>
@@ -46,6 +50,7 @@
           </label>
         </template>
       </li>
+
       <li>
         <template v-for="creamer in creamers" :key="creamer.id">
           <label>
@@ -60,7 +65,12 @@
         </template>
       </li>
     </ul>
+
+    <input type="text" placeholder="Beverage Name" />
+    <button>🍺 Make Beverage</button>
   </div>
+
+  <div id="beverage-container" style="margin-top: 20px"></div>
 </template>
 
 <script setup lang="ts">
@@ -88,6 +98,7 @@ html {
   background-color: #6e4228;
   background: linear-gradient(to bottom, #6e4228 0%, #956f5a 100%);
 }
+
 ul {
   list-style: none;
 }
